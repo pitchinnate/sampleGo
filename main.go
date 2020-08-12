@@ -81,7 +81,7 @@ func logTrim(next http.Handler) http.Handler {
     if r.URL.Path != "/" {
       r.URL.Path = strings.TrimSuffix(r.URL.Path, "/")
     }
-    log.Println(fmt.Sprintf("%s %s by %s", r.Method, r.RequestURI, r.RemoteAddr))
+    fmt.Println(fmt.Sprintf("%s %s by %s", r.Method, r.RequestURI, r.RemoteAddr))
     next.ServeHTTP(w, r)
   })
 }
